@@ -1,0 +1,6 @@
+THIS IS STILL IN BETA
+
+This works just fine. However until I update it you will need to add your tivo address to the main.js file in the buttonClickHandler() function.
+
+TODO:
+  Update to find tivo on the network instead of hardcoded address...

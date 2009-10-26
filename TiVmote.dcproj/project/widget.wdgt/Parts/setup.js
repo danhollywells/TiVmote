@@ -41,9 +41,13 @@ var dashcodePartSpecs = {
     "buttonTivo": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "buttonClickHandler", "rightImageWidth": 5, "text": "ButtonTivo" },
     "buttonUp": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "buttonClickHandler", "rightImageWidth": 5, "text": "ButtonUp" },
     "done": { "creationFunction": "CreateGlassButton", "onclick": "showFront", "text": "Done" },
+    "Findit": { "creationFunction": "CreateButton", "leftImageWidth": 5, "onclick": "buttonFindTivo", "rightImageWidth": 5, "text": "ButtonFind" },
     "info": { "backgroundStyle": "black", "creationFunction": "CreateInfoButton", "foregroundStyle": "white", "frontID": "front", "onclick": "showBack" },
+    "Save": { "creationFunction": "CreateButton", "leftImageWidth": 5, "rightImageWidth": 5, "text": "ButtonSave" },
+    "text": { "text": "Tivo Address", "view": "DC.Text" },
     "titleText": { "text": "title", "view": "DC.Text" }
 };
+
 
 
 

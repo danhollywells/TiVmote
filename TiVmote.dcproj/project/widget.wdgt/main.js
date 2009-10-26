@@ -3,7 +3,7 @@
  You may edit this file to customize your widget or web page 
  according to the license.txt file included in the project.
  */
-
+var TIVO_ADDRESS = '192.168.1.4';
 //
 // Function: load()
 // Called by HTML body element's onload event when the widget is ready to start
@@ -110,22 +110,11 @@ if (window.widget) {
 }
 
 
-function pauseButtonHandler(event)
-{
-var CMD = '/usr/bin/ruby ./tivo_telnet_command.rb 192.168.1.4 IRCODE PAUSE'
-    // Insert Code Here
-    window.widget.system(CMD,null);
-    // http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/Dashboard_Ref/GadgetObj/GadgetObj.html        
-        
-}
 
 function buttonCallbackHandler(e) {
     alert('button callback: ' + e.outputString);
 
 }
-
-
-
 
 
 // GET TIVO ADDRESS
@@ -150,4 +139,50 @@ function buttonClickHandler(event)
     window.widget.system(CMD,null);
     // http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/Dashboard_Ref/GadgetObj/GadgetObj.html        
 
+}
+
+
+function buttonFindTivo(event)
+{
+    // Insert Code Here
+    window.widget.system('/usr/bin/nslookup localhost | awk "/Server/ {print $2}"', findNetworkRangeCallback);
+    alert('find tivo button click');
+}
+
+var addressRange = '192.168.1.';
+function findNetworkRangeCallback(e) {
+    split = e.outputString.split('.');
+    split.pop();
+    addressRange = split.join('.')+'.';
+    alert('addressRange: '+addressRange);
+    findTvio(tivoAt);
+}
+
+var foundTiVo = false;
+var tivoAt = 0;
+function findTvio(incr) {
+    alert('foundTiVo: '+foundTiVo);
+    alert('looking for tivo...' + incr);
+    if(!foundTiVo) {
+        alert('running command');
+        window.widget.system("/usr/bin/nslookup 192.168.1."+incr+" | awk '/TIVO/ {print $4}' | sed 's/\..*//'", checkForTiVo);
+        alert('ran command');
+    }
+}
+
+
+function checkForTiVo(e) {
+    if(e.outputString != undefined) {
+        alert('checkForTiVo: ' + e.outputString)
+        if(e.outputString.indexOf('TIVO')) {
+            foundTiVo = true;
+            //store tivo
+            alert('FOUND TIVO AT '+(tivoAt-1));
+            TIVO_ADDRESS = addressRange+(tivoAt-1);
+            //disable find button
+            //save tivo address in plist or something
+        }
+    } else {
+        findTvio(tivoAt++);
+    }
 }

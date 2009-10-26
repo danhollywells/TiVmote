@@ -1,6 +1,8 @@
-THIS IS STILL IN BETA
+THIS IS STILL IN ALPHA
 
-This works just fine. However until I update it you will need to add your tivo address to the main.js file in the buttonClickHandler() function.
+This works just fine. However until I update it you will need to manually add your tivo address.
+To add your ip address to the widget open main.js and find the buttonClickHandler function fill in your TiVo IP address go.
 
 TODO:
   Update to find tivo on the network instead of hardcoded address...
+  

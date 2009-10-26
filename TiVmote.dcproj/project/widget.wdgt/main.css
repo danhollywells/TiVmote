@@ -38,9 +38,9 @@ body {
     display: block;
     top: 0px;
     left: 0px;
-    bottom: 0px;
     right: 0px;
     width: auto;
+    bottom: 0px;
     height: auto;
 }
 
@@ -66,16 +66,6 @@ body {
     border-color: rgb(0, 0, 0);
     color: rgb(195, 195, 195);
     text-shadow: rgb(100, 100, 100) 0px 0px 0px;
-}
-
-#backDevelopedWith {
-    position: absolute;
-    top: 67px;
-    left: 65px;
-    width: 150px;
-    height: 49px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #buttonAspect {
@@ -710,4 +700,67 @@ body {
     -webkit-border-bottom-left-radius: 10px 10px;
     -webkit-border-bottom-right-radius: 10px 10px;
     top: 52px;
+}
+
+#Save {
+    font-family: HelveticaNeue-Bold;
+    font-size: 12px;
+    text-align: center;
+    width: 60px;
+    cursor: default;
+    -khtml-user-select: none;
+    position: absolute;
+    right: auto;
+    margin-top: 0px;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(191, 191, 191) 0px 0px 0px;
+    top: 162px;
+    left: 272px;
+    bottom: 265px;
+    height: auto;
+}
+
+#textField {
+    position: absolute;
+    color: black;
+    font-family: HelveticaNeue;
+    font-size: 10pt;
+    top: 160px;
+    width: 125px;
+    left: 129px;
+}
+
+#text {
+    font-size: 13px;
+    font-family: 'Lucida Grande', Arial, sans-serif;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: absolute;
+    margin-top: 0px;
+    color: rgb(255, 255, 255);
+    top: 164px;
+    left: 29px;
+    width: auto;
+    height: auto;
+}
+
+.selected #text {
+    color: white;
+}
+
+#Findit {
+    font-family: HelveticaNeue-Bold;
+    font-size: 12px;
+    text-align: center;
+    cursor: default;
+    -khtml-user-select: none;
+    position: absolute;
+    right: auto;
+    margin-top: 0px;
+    color: rgb(255, 255, 255);
+    top: 162px;
+    left: 345px;
+    bottom: 265px;
+    height: auto;
+    width: 70px;
 }

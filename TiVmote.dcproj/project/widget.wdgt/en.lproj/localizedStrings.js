@@ -28,6 +28,7 @@ var localizedStrings = {
     "ButtonDown": "V",
     "ButtonEnter": "Enter",
     "ButtonFastForward": ">>",
+    "ButtonFind": "Find TiVo",
     "ButtonForward": ">>",
     "ButtonGuide": "Guide",
     "ButtonInfo": "Info",
@@ -51,6 +52,7 @@ var localizedStrings = {
     "ButtonReverse": "<< ",
     "ButtonRewind": "<< ",
     "ButtonRight": ">",
+    "ButtonSave": "Save",
     "ButtonSelect": "Select",
     "ButtonSkip": "Skip",
     "ButtonSlow": "Slow",
@@ -65,6 +67,7 @@ var localizedStrings = {
     "tivoBotton": "tivo",
     "tivoButton": "tivo"
 };
+
 
 
 

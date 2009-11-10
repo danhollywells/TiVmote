@@ -147,9 +147,9 @@ function buttonFindTivo(event)
     // Insert Code Here
     window.widget.system('/usr/bin/nslookup localhost | awk "/Server/ {print $2}"', findNetworkRangeCallback);
     alert('find tivo button click');
+    //swap button to spinner image while searching
 }
-
-var addressRange = '192.168.1.';
+var addressRange = "192.168.1." //this is the default global value that will be updated by findNetworkRangeCallback
 function findNetworkRangeCallback(e) {
     split = e.outputString.split('.');
     split.pop();
@@ -160,9 +160,11 @@ function findNetworkRangeCallback(e) {
 
 var foundTiVo = false;
 var tivoAt = 0;
+window.widget.setPreferenceForKey('0.0.0.0','tivo-address');
 function findTvio(incr) {
     alert('foundTiVo: '+foundTiVo);
     alert('looking for tivo...' + incr);
+    alert(widget.preferenceForKey('tivo-address'));
     if(!foundTiVo) {
         alert('running command');
         window.widget.system("/usr/bin/nslookup 192.168.1."+incr+" | awk '/TIVO/ {print $4}' | sed 's/\..*//'", checkForTiVo);
@@ -179,8 +181,9 @@ function checkForTiVo(e) {
             //store tivo
             alert('FOUND TIVO AT '+(tivoAt-1));
             TIVO_ADDRESS = addressRange+(tivoAt-1);
-            //disable find button
-            //save tivo address in plist or something
+            window.widget.setPreferenceForKey(TIVO_ADDRESS,'tivo-address');
+            alert("stored tivo address: "+widget.preferenceForKey('tivo-address'));
+            //swap button from spinner image done searching
         }
     } else {
         findTvio(tivoAt++);
